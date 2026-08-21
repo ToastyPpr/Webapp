@@ -1,0 +1,5 @@
+## needed so we dont have duplicate virtual environments in the repo
+
+.venv/
+__pycache__/
+*.pyc
