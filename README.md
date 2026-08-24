@@ -42,7 +42,19 @@ cd Webapp
 Webapp/
 ├── .venv/               # Isolated Python virtual environment (ignored by Git)
 ├── static/              # CSS styles, images, JavaScript files
-├── templates/           # HTML templates rendered by Flask
+├── templates/           # HTML templates rendered by flask
+    ├────Admin/
+        /base_admin.html
+        /dashboard.html 
+        /leads.html
+        /reviews.html     
 ├── app.py               # Main Flask application entry point
 ├── requirements.txt     # List of required Python packages
 └── README.md            # Project documentation and setup guide
+
+
+# Auguest 23 2026
+
+worked on the submit button, so far it works (i did mess up the css on the form but will work on it tomorrow), form works well. I believe we can start working ont he sql db.
+
+

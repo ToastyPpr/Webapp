@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triple J Construction | Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Triple J Construction</h1>
+        <p>Quality Craftsman Builds & Custom Residential Work</p>
+    </header>
+
+    <main class="container">
+
+        <!-- SECTION 1: FEATURED BUILDS -->
+        <section class="page-section">
+            <h2>Featured Builds</h2>
+            <div class="project-grid">
+                {% for project in portfolio_items %}
+                <div class="project-card">
+                    <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}">
+                    <div class="project-info">
+                        <span class="badge">{{ project.category }}</span>
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- SECTION 2: REVIEWS FROM PRYOR CLIENTS -->
+        <section class="page-section">
+            <h2>What Our Clients Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p>"Exceptional craftsmanship on our custom deck build. Professional, fast, and great communication."</p>
+                    <strong>- Homeowner in Middle TN</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: ABOUT US -->
+        <section class="page-section">
+            <h2>About Triple J Construction</h2>
+            <p>Licensed & insured residential contractor specializing in custom decks, framing, additions, and roofing.</p>
+        </section>
+
+        <!-- SECTION 4: CONTACT / ESTIMATE REQUEST -->
+        <!-- This section is for the contact form, submit button needs to submit to a database
+             also need to start the database -->
+
+        <section>
+            h2>Request a quote today!</h2>
+            <form action="/submit-quote" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <textarea name="details" placeholder="Describe your project..."></textarea>
+                <!-- We will need to add a button so client can submit photos or blueprints of the job-->
+                <button type="submit">Submit Request</button>
+            </form>
+        </section>
+    </main> 
+
+    <footer>
+        <p>&copy; 2026 Triple J Construction. All rights reserved.</p>
+    </footer>
+
+</body> <!-- ONLY ONE BODY TAG PER FILE -->
+</html>
