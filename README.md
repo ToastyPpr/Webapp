@@ -3,7 +3,7 @@
 A web application built using Python and Flask.
 
 ---
-## IMPORTANT: Ai is permited to use on this project but ONLY FOR DEBUGGING everything else has to be done 
+## IMPORTANT: Ai is permited to use on this project but ONLY FOR DEBUGGING everything else has to be done
 ## by hand, the use of AI can lead to many issues in the future espeically if we plan on deploying
 ## Prerequisites
 
