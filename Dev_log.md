@@ -24,7 +24,7 @@
 
 -sitemap and search console
 
-In order to deploy we need to
+## In order to deploy we need to
 
 -protect customer data (database)
 
