@@ -1,8 +1,13 @@
 import os
-from flask import Flask
+from flask import Flask #  <<< I dont think this is required -Ben
 from flask import Flask, render_template, request, jsonify
+from database import db, Lead, initialize_database
 
 app = Flask(__name__)
+#starts DB
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///triple_j.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+initialize_database(app)
 
 PORTFOLIO_ITEMS = [
     {
@@ -43,41 +48,42 @@ PORTFOLIO_ITEMS = [
 
 @app.route("/")
 def home():
-    return render_template("index.html", portfolio_items=PORTFOLIO_ITEMS)
-# testing before we implement into sqldatabase
-LEAD_LIST = []
-# SCRIPT FOR SUBMITTING QUOTE FORM
+    return render_template(
+        "index.html",
+        portfolio_items=PORTFOLIO_ITEMS
+    )
+
+
 @app.route("/submit-quote", methods=["POST"])
 def submit_quote():
-    client_name = request.form.get("name")
-    phone = request.form.get("phone")
-    email = request.form.get("email")
-    details = request.form.get("details")
+    client_name = (request.form.get("name") or "").strip()
+    phone = (request.form.get("phone") or "").strip()
+    email = (request.form.get("email") or "").strip()
+    details = (request.form.get("details") or "").strip()
 
+    if not client_name or not phone or not email:
+        return jsonify({
+            "status": "error",
+            "message": "Name, phone, and email are required fields."
+        }), 400
 
 # Storing data in a dictionary for demonstration purposes
 
-    lead_data = {
-        "name": client_name,
-        "phone": phone,
-        "email": email,
-        "details": details
-    }
+    new_lead = Lead(
+        name=client_name,
+        phone=phone,
+        email=email,
+        details=details
+    )
 
-    LEAD_LIST.append(lead_data)
-
-    print("\n--- A new Lead has been submitted ---\n")
-    print(f"client {client_name} | Phone: {phone} | Email: {email} | Details: {details}")
+    db.session.add(new_lead)
+    db.session.commit()
 
     return jsonify({
         "status": "success",
         "message": f"Thank you, {client_name}! Your quote request has been submitted successfully."
     }), 200
 
-    # Here, you can implement logic to store the quote_data in a database or perform any other necessary actions.
-
-    # For demonstration, we'll just return a success message.
-    return jsonify({"message": "Quote submitted successfully!", "data": quote_data}), 200
 
 if __name__ == "__main__":
     app.run(host = "0.0.0.0",port=5000, debug=True)
