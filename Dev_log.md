@@ -1,4 +1,43 @@
-# Auguest 23 2026 - Alex
+# Possible to do list
+
+-Style the CSS a little more
+
+-Add real project photos/ descriptions. 
+
+-obtain logo
+
+-navigation links
+
+-add thank you message to submit button
+
+-database may need to handle errors a little more gracefully
+
+-add spam protection
+
+-Page description
+
+-business phone and service area
+
+-business structured data
+
+-Google Business Profile 
+
+-sitemap and search console
+
+In order to deploy we need to
+
+-protect customer data (database)
+
+-Finish required website content
+
+-Finish the quote form and round it out
+
+-prepare the DB 
+
+-Basic Cybersecurity practices need to be implemented
+
+
+## Auguest 23 2026 - Alex
 
 worked on the submit button, so far it works (i did mess up the css on the form but will work on it tomorrow), form works well. I believe we can start working ont he sql db.
 
