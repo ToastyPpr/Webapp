@@ -24,6 +24,8 @@
 
 -sitemap and search console
 
+-make scheduling addon to website for customers
+
 ## In order to deploy we need to
 
 -protect customer data (database)
