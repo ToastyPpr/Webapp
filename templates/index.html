@@ -53,11 +53,12 @@
         <!-- This section is for the contact form, submit button needs to submit to a database
              also need to start the database -->
 
-        <section = "class="page-section">
+        <section>
             h2>Request a quote today!</h2>
             <form action="/submit-quote" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" placeholder="Email Address" required>
                 <textarea name="details" placeholder="Describe your project..."></textarea>
                 <!-- We will need to add a button so client can submit photos or blueprints of the job-->
                 <button type="submit">Submit Request</button>

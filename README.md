@@ -41,6 +41,7 @@ cd Webapp
 ### Structurally we should look like this for the following project,comments are a must, needs to be clean and easy to read almost as if you are reading to a child 
 Webapp/
 ├── .venv/               # Isolated Python virtual environment (ignored by Git)
+├── instance/            # holds the database data for the current instance
 ├── static/              # CSS styles, images, JavaScript files
 ├── templates/           # HTML templates rendered by flask
     ├────Admin/
@@ -49,12 +50,11 @@ Webapp/
         /leads.html
         /reviews.html     
 ├── app.py               # Main Flask application entry point
+├── database.py          # Holds database information and how it works
 ├── requirements.txt     # List of required Python packages
 └── README.md            # Project documentation and setup guide
 
 
-# Auguest 23 2026
 
-worked on the submit button, so far it works (i did mess up the css on the form but will work on it tomorrow), form works well. I believe we can start working ont he sql db.
 
 
