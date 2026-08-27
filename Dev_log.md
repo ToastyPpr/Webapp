@@ -26,6 +26,8 @@
 
 -make scheduling addon to website for customers
 
+-some sort of priority list for projects
+
 ## In order to deploy we need to
 
 -protect customer data (database)
