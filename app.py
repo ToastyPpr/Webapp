@@ -1,12 +1,24 @@
 import os
-from flask import Flask #  <<< I dont think this is required -Ben
-from flask import Flask, render_template, request, jsonify
+from flask import (
+    Flask,
+    jsonify,
+    redirect,
+    render_template,
+    request,
+    url_for,
+)
 from database import db, Lead, initialize_database
 
 app = Flask(__name__)
-#starts DB
+
+# Application configuration
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///triple_j.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["BOOKING_URL"] = os.environ.get(
+    "BOOKING_URL",
+    ""
+)
+
 initialize_database(app)
 
 PORTFOLIO_ITEMS = [
@@ -54,6 +66,16 @@ def home():
     )
 
 
+@app.route("/thank-you")
+def thank_you():
+    """Show confirmation and scheduling options after a saved quote."""
+
+    return render_template(
+        "thank_you.html",
+        booking_url=app.config["BOOKING_URL"]
+    )
+
+
 @app.route("/submit-quote", methods=["POST"])
 def submit_quote():
     client_name = (request.form.get("name") or "").strip()
@@ -67,8 +89,6 @@ def submit_quote():
             "message": "Name, phone, and email are required fields."
         }), 400
 
-# Storing data in a dictionary for demonstration purposes
-
     new_lead = Lead(
         name=client_name,
         phone=phone,
@@ -79,10 +99,7 @@ def submit_quote():
     db.session.add(new_lead)
     db.session.commit()
 
-    return jsonify({
-        "status": "success",
-        "message": f"Thank you, {client_name}! Your quote request has been submitted successfully."
-    }), 200
+    return redirect(url_for("thank_you"))
 
 
 if __name__ == "__main__":

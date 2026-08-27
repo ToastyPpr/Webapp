@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Request Received | Triple J Construction</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+    <header>
+        <h1>Triple J Construction</h1>
+        <p>Quality Craftsman Builds &amp; Custom Residential Work</p>
+    </header>
+
+    <main class="container">
+        <section class="thank-you-card">
+            <h2>Your request was received!</h2>
+            <p>Your project information was saved successfully.</p>
+
+            {% if booking_url %}
+                <p>Schedule a short phone consultation to discuss your project.</p>
+                <a
+                    class="schedule-button"
+                    href="{{ booking_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Schedule a Consultation
+                </a>
+            {% else %}
+                <p>We will contact you shortly to discuss the next steps.</p>
+            {% endif %}
+
+            <p class="home-link">
+                <a href="{{ url_for('home') }}">Return to the homepage</a>
+            </p>
+        </section>
+    </main>
+</body>
+</html>

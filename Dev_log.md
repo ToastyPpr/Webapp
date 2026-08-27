@@ -1,14 +1,14 @@
 # Possible to do list
 
--Style the CSS a little more
+-Style the CSS a little more - worked on waiting for feedback 
 
 -Add real project photos/ descriptions. 
 
 -obtain logo
 
--navigation links
+-navigation links 
 
--add thank you message to submit button
+-add thank you message to submit button - Done
 
 -database may need to handle errors a little more gracefully
 
@@ -24,7 +24,7 @@
 
 -sitemap and search console
 
--make scheduling addon to website for customers
+-make scheduling addon to website for customers - Done
 
 -some sort of priority list for projects
 
@@ -78,3 +78,7 @@ python -c "import sqlite3; db=sqlite3.connect('instance/triple_j.db'); print(db.
 ```
 
 If the submitted information appears, the database is storing leads correctly.
+
+## August 27 2026 - Ben
+
+I have added example photos and also a scheduling function with a thank you confirmation page. I also tweaked the css a little bit to help it look a little better and I added example photos for reference and the color is a little weird. I did not mess with the DB at all, but I had to make the phone a string again because of some sort of weird bug.

@@ -8,9 +8,13 @@
 </head>
 <body>
 
-    <header>
+    <header class="hero">
         <h1>Triple J Construction</h1>
         <p>Quality Craftsman Builds & Custom Residential Work</p>
+
+        <a class="hero-button" href="#quote">
+            Request a Quote
+        </a>
     </header>
 
     <main class="container">
@@ -53,8 +57,8 @@
         <!-- This section is for the contact form, submit button needs to submit to a database
              also need to start the database -->
 
-        <section>
-            h2>Request a quote today!</h2>
+        <section id="quote" class="page-section">
+            <h2>Request a quote today!</h2>
             <form action="/submit-quote" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="tel" name="phone" placeholder="Phone Number" required>
