@@ -14,10 +14,8 @@ app = Flask(__name__)
 # Application configuration
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///triple_j.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["BOOKING_URL"] = os.environ.get(
-    "BOOKING_URL",
-    ""
-)
+app.config["BOOKING_URL"] = "https://calendar.app.google/WGgDvPj6xebfbCaQ9"
+
 
 initialize_database(app)
 
